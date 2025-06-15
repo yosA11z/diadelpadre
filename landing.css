@@ -1,17 +1,15 @@
-/* Importar fuentes de Google Fonts (Montserrat y Merriweather) */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
 
 :root {
-    /* Paleta de colores: "Gama Profunda y Acentos Audaces" (Copiada de tu style.css) */
-    --primary-dark: #1a1a2e; /* Azul noche muy oscuro, casi negro - fondo principal */
-    --secondary-accent: #e94560; /* Rojo coral profundo - acento principal, vibrante */
-    --tertiary-light: #537fe7; /* Azul eléctrico - segundo acento, contraste */
-    --text-contrast: #f0f0f0; /* Blanco grisáceo - texto principal sobre fondos oscuros */
-    --text-muted: #b0b0b0; /* Gris suave - texto secundario o descripciones */
-    --border-subtle: rgba(255, 255, 255, 0.1); /* Borde blanco muy transparente */
-    --shadow-deep: rgba(0, 0, 0, 0.4); /* Sombra profunda para elementos elevados */
-    --gradient-header: linear-gradient(135deg, var(--primary-dark) 0%, #2a2a4e 100%); /* Usado para el background principal */
+    --primary-dark: #1a1a2e; 
+    --secondary-accent: #e94560; 
+    --tertiary-light: #537fe7; 
+    --text-contrast: #f0f0f0; 
+    --text-muted: #b0b0b0; 
+    --border-subtle: rgba(255, 255, 255, 0.1); 
+    --shadow-deep: rgba(0, 0, 0, 0.4); 
+    --gradient-header: linear-gradient(135deg, var(--primary-dark) 0%, #2a2a4e 100%); 
     --gradient-button: linear-gradient(45deg, var(--secondary-accent) 0%, #ff6e88 100%);
     --gradient-button-hover: linear-gradient(45deg, #ff6e88 0%, var(--secondary-accent) 100%);
 }
@@ -19,12 +17,12 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif; /* Usando Montserrat para el cuerpo */
+    font-family: 'Montserrat', sans-serif; 
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: var(--gradient-header); /* Usando el gradiente del header para el fondo */
+    background: var(--gradient-header); 
     color: var(--text-contrast);
     text-align: center;
     overflow: hidden;
@@ -33,7 +31,7 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-/* Efecto de partículas de fondo - Ajustado a la nueva paleta */
+
 body::before {
     content: '';
     position: absolute;
@@ -45,7 +43,7 @@ body::before {
                 radial-gradient(circle at bottom right, var(--tertiary-light) 0%, transparent 40%); /* Una partícula con acento */
     opacity: 0.7;
     pointer-events: none;
-    animation: backgroundPulse 18s infinite alternate ease-in-out; /* Animación más sutil */
+    animation: backgroundPulse 18s infinite alternate ease-in-out; 
 }
 
 @keyframes backgroundPulse {
@@ -54,11 +52,11 @@ body::before {
 }
 
 .landing-container {
-    background-color: rgba(30, 30, 46, 0.7); /* Fondo translúcido más oscuro, acorde al primary-dark */
-    padding: 50px 70px; /* Padding ligeramente más grande */
-    border-radius: 15px; /* Bordes más angulosos */
-    box-shadow: 0 15px 40px var(--shadow-deep); /* Sombra más profunda */
-    backdrop-filter: blur(12px); /* Efecto de desenfoque más pronunciado */
+    background-color: rgba(30, 30, 46, 0.7); 
+    padding: 50px 70px; 
+    border-radius: 15px; 
+    box-shadow: 0 15px 40px var(--shadow-deep); 
+    backdrop-filter: blur(12px); 
     border: 1px solid var(--border-subtle);
     max-width: 90%;
     transform: translateY(0);
@@ -66,24 +64,24 @@ body::before {
 }
 
 .landing-container:hover {
-    transform: translateY(-8px); /* Elevación más pronunciada */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); /* Sombra más intensa al hover */
+    transform: translateY(-8px); 
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); 
 }
 
 .landing-title {
-    font-family: 'Merriweather', serif; /* Usando Merriweather para el título */
-    font-size: 4.5em; /* Título más grande e impactante */
+    font-family: 'Merriweather', serif; 
+    font-size: 4.5em; 
     margin-bottom: 20px;
     color: var(--text-contrast);
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); /* Sombra de texto más intensa */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); 
     letter-spacing: 0.05em;
-    font-weight: 900; /* Más audaz */
+    font-weight: 900; 
 }
 
 .landing-subtitle {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.6em; /* Subtítulo un poco más grande */
-    margin-bottom: 50px; /* Más espacio antes del botón */
+    font-size: 1.6em; 
+    margin-bottom: 50px; 
     color: var(--text-muted);
     font-weight: 400;
     letter-spacing: 0.02em;
@@ -94,29 +92,29 @@ body::before {
 
 .enter-button {
     display: inline-block;
-    background: var(--gradient-button); /* Usando el gradiente de botón */
+    background: var(--gradient-button); 
     color: var(--text-contrast);
-    padding: 20px 50px; /* Botón más grande */
-    border-radius: 4px; /* Bordes angulosos */
+    padding: 20px 50px; 
+    border-radius: 4px; 
     text-decoration: none;
-    font-size: 1.8em; /* Fuente más grande para el botón */
+    font-size: 1.8em; 
     font-weight: 700;
     transition: all 0.3s ease-out;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra de botón más profunda */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); 
     letter-spacing: 0.08em;
-    text-transform: uppercase; /* Texto en mayúsculas */
-    border: 2px solid var(--secondary-accent); /* Borde con el color principal del botón */
+    text-transform: uppercase; 
+    border: 2px solid var(--secondary-accent); 
 }
 
 .enter-button:hover {
-    background: var(--gradient-button-hover); /* Gradiente de hover */
-    transform: translateY(-6px) scale(1.02); /* Elevación y escala sutil */
+    background: var(--gradient-button-hover); 
+    transform: translateY(-6px) scale(1.02); 
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-    border-color: var(--tertiary-light); /* Borde cambia a azul eléctrico */
+    border-color: var(--tertiary-light); 
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Media Queries para Responsive Design (Ajustados para esta estética) */
+
 @media (max-width: 992px) {
     .landing-container {
         padding: 40px 50px;
