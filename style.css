@@ -1,0 +1,551 @@
+/* Fuente principal: Montserrat (moderna, geométrica, audaz) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+/* Fuente secundaria: Merriweather (serif con carácter para títulos/acentos) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
+
+:root {
+    /* Paleta de colores: "Gama Profunda y Acentos Audaces" */
+    --primary-dark: #1a1a2e; /* Azul noche muy oscuro, casi negro - fondo principal */
+    --secondary-accent: #e94560; /* Rojo coral profundo - acento principal, vibrante */
+    --tertiary-light: #537fe7; /* Azul eléctrico - segundo acento, contraste */
+    --text-contrast: #f0f0f0; /* Blanco grisáceo - texto principal sobre fondos oscuros */
+    --text-muted: #b0b0b0; /* Gris suave - texto secundario o descripciones */
+    --border-subtle: rgba(255, 255, 255, 0.1); /* Borde blanco muy transparente */
+    --shadow-deep: rgba(0, 0, 0, 0.4); /* Sombra profunda para elementos elevados */
+    --gradient-header: linear-gradient(135deg, var(--primary-dark) 0%, #2a2a4e 100%);
+    --gradient-button: linear-gradient(45deg, var(--secondary-accent) 0%, #ff6e88 100%);
+    --gradient-button-hover: linear-gradient(45deg, #ff6e88 0%, #e94560 100%);
+}
+
+html, body {
+    height: 100%; /* Asegura que ocupen toda la altura */
+    scroll-behavior: smooth; /* Desplazamiento suave */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-dark); /* Fondo oscuro principal */
+    color: var(--text-contrast); /* Texto claro por defecto */
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* --- SEPARADORES DE SECCIÓN: LÍNEAS DE ENERGÍA --- */
+.section + .section::before {
+    content: '';
+    display: block;
+    width: 25%; /* Un poco más corto */
+    max-width: 120px; /* Tamaño máximo más contenido */
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--tertiary-light), transparent);
+    margin: 6em auto; /* Menos espacio para respirar, más proporcionado */
+    opacity: 0.7;
+    animation: pulseLine 2s infinite alternate;
+}
+
+@keyframes pulseLine {
+    0% { transform: scaleX(0.8); opacity: 0.5; }
+    100% { transform: scaleX(1); opacity: 0.9; }
+}
+
+main {
+    max-width: 1200px; /* AUMENTADO EL ANCHO MÁXIMO DEL CONTENEDOR PRINCIPAL */
+    margin: 0 auto;
+    padding: 0 2.5em; /* Padding lateral ajustado */
+}
+
+.section {
+    padding: 6em 0; /* Grandes paddings, pero no tan exagerados */
+    margin-bottom: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+    text-align: center;
+}
+
+.section-description {
+    text-align: center;
+    margin-bottom: 3.5em; /* Espacio para la descripción */
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 1.1em; /* Ligeramente más pequeño */
+    max-width: 700px; /* Ancho más contenido */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+/* --- HEADER: PANTALLA COMPLETA, PROFUNDIDAD Y ÉNFASIS --- */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-header);
+    color: var(--text-contrast);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 15px 50px var(--shadow-deep); /* Sombra ligeramente menos extrema */
+    border-bottom: 4px solid var(--secondary-accent); /* Línea de acento ligeramente más delgada */
+}
+
+.header-image {
+    width: 440px; /* Tamaño más proporcionado */
+    height: 440px;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 3em; /* Espacio ajustado */
+    border: 12px solid rgba(255, 255, 255, 0.1); /* Borde ajustado */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6); /* Sombra ajustada */
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), border-color 0.4s ease-in-out;
+    position: relative;
+}
+
+.header-image:hover {
+    transform: scale(1.1) rotate(5deg); /* Escala y rotación menos agresivas */
+    border-color: var(--secondary-accent);
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 5.2em; /* ¡Aún ENORME, pero más proporcionado! */
+    margin-bottom: 0.1em;
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.07em; /* Ligero ajuste */
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em; /* Subtítulo más equilibrado */
+    margin-top: 1.2em; /* Espacio ajustado */
+    opacity: 0.85;
+    font-weight: 300;
+    letter-spacing: 0.05em; /* Ligero ajuste */
+    max-width: 800px; /* Ancho más contenido */
+    color: var(--text-muted);
+}
+
+/* --- TÍTULOS DE SECCIONES (h2): IMPACTANTES Y MINIMALISTAS --- */
+h2 {
+    font-family: 'Merriweather', serif;
+    color: var(--tertiary-light);
+    text-align: center;
+    font-size: 3.8em; /* Título de sección grande, pero no desproporcionado */
+    margin-bottom: 1.2em; /* Menos espacio para la línea inferior */
+    position: relative;
+    padding-bottom: 0.4em; /* Ajuste del padding */
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px; /* Línea de acento más corta y delgada */
+    height: 3px;
+    background-color: var(--secondary-accent);
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+/* --- DEDICATORIAS: BLOQUES DE CITA FLOTANTES --- */
+.dedicatoria {
+    border: none;
+    background: rgba(42, 42, 78, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 3em; /* Padding ajustado */
+    margin: 0 auto 3em; /* Margen ajustado */
+    max-width: 700px; /* Ancho más contenido */
+    border-radius: 10px; /* Redondeo más sutil */
+    text-align: center;
+    box-shadow: 0 8px 25px var(--shadow-deep); /* Sombra ajustada */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+    border: 1px solid var(--border-subtle);
+}
+
+.dedicatoria:hover {
+    transform: translateY(-12px); /* Menos elevación */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Sombra ajustada */
+}
+
+.dedicatoria h3 {
+    font-family: 'Merriweather', serif;
+    color: var(--secondary-accent);
+    margin-top: 0;
+    margin-bottom: 0.8em; /* Espacio ajustado */
+    font-size: 2em; /* Más proporcionado */
+    font-weight: 700;
+}
+
+.dedicatoria p {
+    font-style: italic;
+    color: var(--text-contrast);
+    font-size: 1.2em; /* Texto más proporcionado */
+    line-height: 1.8;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* --- GALERÍA: DESPLAZAMIENTO HORIZONTAL CON PROFUNDIDAD --- */
+.galeria-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    margin-bottom: 3.5em; /* Espacio debajo del contenedor */
+    padding: 0.8em 0; /* Padding interno ajustado */
+    gap: 2.5em; /* Espacio entre imágenes ajustado */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-accent) rgba(255, 255, 255, 0.05);
+}
+
+.galeria-container::-webkit-scrollbar {
+    height: 10px; /* Grosor del scrollbar ajustado */
+}
+
+.galeria-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.galeria-container::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-accent);
+    border-radius: 10px;
+    border: 2px solid var(--primary-dark); /* Borde ajustado */
+    transition: background-color 0.3s ease;
+}
+
+.galeria-container::-webkit-scrollbar-thumb:hover {
+    background-color: #ff6e88;
+}
+
+.galeria-container img {
+    flex-shrink: 0;
+    width: 90%;
+    max-width: 550px; /* Tamaño generoso, pero más contenido */
+    height: 400px; /* Altura ajustada */
+    object-fit: cover;
+    border-radius: 8px; /* Redondeo más sutil */
+    box-shadow: 0 12px 40px var(--shadow-deep); /* Sombra ajustada */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease, border-color 0.4s ease;
+    cursor: grab;
+    border: 3px solid rgba(255, 255, 255, 0.15); /* Borde ajustado */
+}
+
+.galeria-container img:active {
+    cursor: grabbing;
+}
+
+.galeria-container img:hover {
+    transform: translateY(-8px) scale(1.01); /* Elevación y escala más sutiles */
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.8); /* Sombra más intensa al hover */
+    border-color: var(--tertiary-light);
+}
+
+.galeria-controles {
+    display: none;
+}
+
+/* --- RAZONES Y LEGADO: GRID MINIMALISTA CON ÍCONOS --- */
+.razones-grid,
+.legado-grid {
+    display: grid;
+    /* *** AJUSTE CLAVE AQUÍ: Repetir explícitamente 4 columnas si es posible *** */
+    grid-template-columns: repeat(4, minmax(200px, 1fr)); /* Intenta 4 columnas, min 200px */
+    gap: 1.5em; /* Reducido el gap para dar más espacio */
+    padding: 0.8em;
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    /* Ajuste para que el grid se centre si no ocupa todo el max-width del main */
+    justify-content: center; /* Centra los elementos del grid si no llenan el ancho */
+}
+
+.razon-item,
+.legado-item {
+    background: rgba(60, 60, 100, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 2.2em;
+    text-align: center;
+    box-shadow: 0 6px 20px var(--shadow-deep);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: auto;
+    min-height: 250px;
+    padding-bottom: 2.2em;
+    overflow: hidden;
+}
+
+.razon-item:hover,
+.legado-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.razon-item h3,
+.legado-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--tertiary-light);
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    font-size: 1.5em;
+    font-weight: 400;
+    text-align: left;
+    width: 100%;
+}
+
+.razon-item p,
+.legado-item p {
+    color: var(--text-contrast);
+    font-size: 1em; /* Si aún se corta, prueba 0.95em o 0.9em */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    flex-grow: 1;
+    overflow: visible;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* --- BANDA SONORA: EMBED CENTRADO Y CON ESTILO --- */
+.spotify-embed-container {
+    text-align: center;
+    margin-top: 3.5em;
+    background: rgba(30, 30, 50, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2.5em;
+    border-radius: 12px;
+    box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-subtle);
+}
+
+.spotify-embed-container iframe {
+    border-radius: 8px;
+    max-width: 100%;
+    height: 450px;
+    box-shadow: 0 8px 25px var(--shadow-deep);
+}
+
+/* --- MENSAJE SORPRESA: CAJA DE TESORO FLOTANTE --- */
+.surprise-content {
+    text-align: center;
+    padding: 4em;
+    background: rgba(42, 42, 78, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 2px dashed var(--secondary-accent);
+    box-shadow: 0 12px 40px var(--shadow-deep);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+#revealMessageBtn {
+    background: var(--gradient-button);
+    color: var(--text-contrast);
+    border: none;
+    padding: 1.5em 3em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    transition: all 0.3s ease-out;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+}
+
+#revealMessageBtn:hover {
+    background: var(--gradient-button-hover);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+#secretMessage {
+    margin-top: 3.5em;
+    font-size: 1.6em;
+    color: var(--tertiary-light);
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
+    line-height: 1.7;
+    transition: opacity 1.2s ease-in-out;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* --- CONFETI: EXPLOSIÓN DE COLOR --- */
+#confettiContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.confetti {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--secondary-accent);
+    opacity: 0;
+    border-radius: 50%;
+    animation: fall 6s cubic-bezier(0.2, 0.8, 0.4, 1.2) forwards;
+}
+/* Añadir variación de color al confeti (se requerirá JS para asignar clases dinámicamente) */
+.confetti.color1 { background-color: var(--secondary-accent); }
+.confetti.color2 { background-color: var(--tertiary-light); }
+.confetti.color3 { background-color: var(--text-contrast); }
+.confetti.color4 { background-color: #f7d08a; }
+
+@keyframes fall {
+    0% {
+        transform: translateY(-40px) rotateZ(0deg) scale(0.7);
+        opacity: 0.9;
+        filter: blur(0px);
+    }
+    100% {
+        transform: translateY(110vh) rotateZ(1800deg) scale(0.2);
+        opacity: 0;
+        filter: blur(4px);
+    }
+}
+
+/* --- FOOTER: MINIMALISTA Y ELEGANTE --- */
+footer {
+    text-align: center;
+    padding: 3em 0;
+    background-color: var(--primary-dark);
+    color: var(--text-muted);
+    margin-top: 6em;
+    font-size: 0.95em;
+    letter-spacing: 0.02em;
+    opacity: 0.8;
+    border-top: 1px solid var(--border-subtle);
+}
+
+/* --- RESPONSIVE DESIGN: AJUSTES (AÚN MÁS AFINADOS) --- */
+@media (max-width: 1200px) {
+    main { padding: 0 2em; }
+    h1 { font-size: 4.8em; }
+    h2 { font-size: 3.5em; }
+    .legado-item { padding: 1.8em; }
+    .legado-item p { font-size: 0.98em; line-height: 1.55; }
+    .legado-grid {
+        /* Intenta mantener las 4 columnas, pero si no cabe, ajusta */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Volvemos a auto-fit para flexibilidad */
+        gap: 1.5em;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 { font-size: 4em; }
+    .subtitle { font-size: 1.6em; }
+    h2 { font-size: 3em; }
+    .header-image { width: 200px; height: 200px; }
+    .dedicatoria { padding: 2.5em; max-width: 90%; }
+    .dedicatoria h3 { font-size: 1.8em; }
+    .dedicatoria p { font-size: 1.1em; }
+    .galeria-container img { max-width: 450px; height: 350px; }
+    .razon-item, .legado-item { padding: 1.5em; min-height: 220px;}
+    #revealMessageBtn { padding: 1.4em 2.8em; font-size: 1.4em; }
+    #secretMessage { font-size: 1.5em; }
+    .legado-item p { font-size: 0.9em; line-height: 1.5; }
+    .legado-grid {
+        /* Para tablets y pantallas medias, intenta 2 o 3 columnas */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Aumenta minmax para forzar menos columnas, ej 3 */
+        gap: 1.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .section { padding: 5em 0; }
+    h1 { font-size: 3.2em; letter-spacing: 0.05em; }
+    .subtitle { font-size: 1.3em; max-width: 90%; }
+    .header-image { width: 170px; height: 170px; border-width: 10px; }
+    h2 { font-size: 2.5em; }
+    h2::after { width: 70px; height: 2px; }
+    .dedicatoria { padding: 2em; }
+    .dedicatoria h3 { font-size: 1.6em; }
+    .dedicatoria p { font-size: 1em; }
+    .galeria-container { gap: 1.5em; }
+    .galeria-container img { height: 280px; max-width: 90%; border-width: 2px; }
+    .razones-grid, .legado-grid {
+        gap: 1.2em;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Minmax más grande para forzar 2 columnas en vez de 3 */
+    }
+    .razon-item, .legado-item { padding: 1.2em; min-height: 200px; }
+    .spotify-embed-container { padding: 1.8em; }
+    .spotify-embed-container iframe { height: 280px; }
+    .surprise-content { padding: 3em; }
+    #revealMessageBtn { padding: 1.2em 2.5em; font-size: 1.2em; }
+    #secretMessage { font-size: 1.3em; }
+    .legado-item p { font-size: 0.85em; line-height: 1.45; }
+}
+
+@media (max-width: 480px) {
+    main { padding: 0 0.8em; }
+    header { padding: 4em 0 3em; }
+    h1 { font-size: 2.5em; letter-spacing: 0.04em; }
+    .subtitle { font-size: 1.1em; }
+    .header-image { width: 130px; height: 130px; border-width: 8px; }
+    .section { padding: 3.5em 0; }
+    h2 { font-size: 2em; }
+    .dedicatoria { padding: 1.8em; }
+    .galeria-container img { height: 220px; max-width: 95%; }
+    #revealMessageBtn { padding: 1em 2em; font-size: 1.1em; }
+    #secretMessage { font-size: 1.1em; line-height: 1.6; }
+    footer { padding: 2em 0; font-size: 0.9em; }
+    .razones-grid, .legado-grid { grid-template-columns: 1fr; gap: 1.2em; }
+    .legado-item { padding: 1em; min-height: auto; }
+    .legado-item p { font-size: 0.8em; line-height: 1.4; }
+}
+
+/* Elimina o corrige la sección problemática de tu CSS original */
+#legado1,
+.legado2,
+.legado3 {
+    /* ELIMINA: width: 2000px; */
+    /* ELIMINA O COMENTA: padding-right: 100rex; (unidad incorrecta y no debería ir aquí) */
+    /* Deja que .legado-item gestione el estilo de estas cajas */
+    height: auto;
+}
